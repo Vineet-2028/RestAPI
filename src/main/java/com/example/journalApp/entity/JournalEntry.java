@@ -1,9 +1,26 @@
 package com.example.journalApp.entity;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDateTime;
+
+@Document(collection = "journal_entries")
 public class JournalEntry {
+
+    @Id
     private long id;
     private String title;
     private String content;
+    private LocalDateTime date;
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
 
     public String getTitle() {
         return title;
